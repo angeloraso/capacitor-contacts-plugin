@@ -1,12 +1,18 @@
 package com.angeloraso.plugins.contacts;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.util.Base64;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -38,6 +44,7 @@ import java.util.Set;
     }
 )
 public class ContactsPlugin extends Plugin {
+    private static PluginCall addContactCall;
     private static final String CONTACT_ID = "contactId";
     private static final String EMAILS = "emails";
     private static final String EMAIL_LABEL = "label";
@@ -261,19 +268,22 @@ public class ContactsPlugin extends Plugin {
             call.reject("The number is required");
             return;
         }
-        // Creates a new Intent to insert a contact
-        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
-        // Sets the MIME type to match the Contacts Provider
-        intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
 
-        intent.putExtra(ContactsContract.Intents.Insert.PHONE, call.getString("number"));
-        intent.putExtra(ContactsContract.Intents.Insert.PHONE_TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_WORK);
+        ContactsPlugin.addContactCall = call;
+
+        Intent intent = new Intent("android.intent.action.PHONE_BOOK_ACTIVITY");
+        intent.setPackage(getContext().getPackageName());
+
+        intent.putExtra("number", call.getString("number"));
         if (call.hasOption("name")) {
-            intent.putExtra(ContactsContract.Intents.Insert.NAME, call.getString("name"));
+            intent.putExtra("name", call.getString("name"));
         }
 
         getContext().startActivity(intent);
-        call.resolve();
+    }
+
+    public static void onPhoneBookActivityResult() {
+      ContactsPlugin.addContactCall.resolve();
     }
 
     @PluginMethod
