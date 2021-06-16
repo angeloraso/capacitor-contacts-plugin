@@ -10,12 +10,12 @@ export class ContactsWeb extends WebPlugin {
     async getContacts() {
         return { contacts: [] };
     }
-    async setContacts(contacts) {
-        console.log('CONTACTS', contacts);
+    async addContact(data) {
+        console.log('CONTACTS', data);
         return;
     }
-    async deleteContact(contactId) {
-        console.log('CONTACT ID', contactId);
+    async deleteContact(data) {
+        console.log('CONTACT ID', data);
         return;
     }
     async getGroups() {

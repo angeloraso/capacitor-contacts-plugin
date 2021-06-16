@@ -42,31 +42,29 @@
         "slug": "getcontacts"
       },
       {
-        "name": "setContacts",
-        "signature": "(contacts: Contact[]) => any",
+        "name": "addContact",
+        "signature": "(data: { name?: string; number: string; }) => any",
         "parameters": [
           {
-            "name": "contacts",
+            "name": "data",
             "docs": "",
-            "type": "{}"
+            "type": "{ name?: string | undefined; number: string; }"
           }
         ],
         "returns": "any",
         "tags": [],
         "docs": "",
-        "complexTypes": [
-          "Contact"
-        ],
-        "slug": "setcontacts"
+        "complexTypes": [],
+        "slug": "addcontact"
       },
       {
         "name": "deleteContact",
-        "signature": "(contactId: string) => any",
+        "signature": "(data: { contactId: string; }) => any",
         "parameters": [
           {
-            "name": "contactId",
+            "name": "data",
             "docs": "",
-            "type": "string"
+            "type": "{ contactId: string; }"
           }
         ],
         "returns": "any",

@@ -16,7 +16,7 @@ npx cap sync
 * [`getPermissions()`](#getpermissions)
 * [`requestPermissions()`](#requestpermissions)
 * [`getContacts()`](#getcontacts)
-* [`setContacts(...)`](#setcontacts)
+* [`addContact(...)`](#addcontact)
 * [`deleteContact(...)`](#deletecontact)
 * [`getGroups()`](#getgroups)
 * [`getContactGroups()`](#getcontactgroups)
@@ -60,15 +60,15 @@ getContacts() => any
 --------------------
 
 
-### setContacts(...)
+### addContact(...)
 
 ```typescript
-setContacts(contacts: Contact[]) => any
+addContact(data: { name?: string; number: string; }) => any
 ```
 
-| Param          | Type            |
-| -------------- | --------------- |
-| **`contacts`** | <code>{}</code> |
+| Param      | Type                                            |
+| ---------- | ----------------------------------------------- |
+| **`data`** | <code>{ name?: string; number: string; }</code> |
 
 **Returns:** <code>any</code>
 
@@ -78,12 +78,12 @@ setContacts(contacts: Contact[]) => any
 ### deleteContact(...)
 
 ```typescript
-deleteContact(contactId: string) => any
+deleteContact(data: { contactId: string; }) => any
 ```
 
-| Param           | Type                |
-| --------------- | ------------------- |
-| **`contactId`** | <code>string</code> |
+| Param      | Type                                |
+| ---------- | ----------------------------------- |
+| **`data`** | <code>{ contactId: string; }</code> |
 
 **Returns:** <code>any</code>
 

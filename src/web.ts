@@ -15,13 +15,13 @@ export class ContactsWeb extends WebPlugin implements ContactsPlugin {
     return { contacts: []};
   }
   
-  async setContacts(contacts: Contact[]): Promise<void> {
-    console.log('CONTACTS', contacts);
+  async addContact(data: {nam?: string, number: string}): Promise<void> {
+    console.log('CONTACTS', data);
     return;
   }
 
-  async deleteContact(contactId: string): Promise<void> {
-    console.log('CONTACT ID', contactId);
+  async deleteContact(data: {contactId: string}): Promise<void> {
+    console.log('CONTACT ID', data);
     return;
   }
 

@@ -31,8 +31,13 @@ export interface ContactsPlugin {
     getContacts(): Promise<{
         contacts: Contact[];
     }>;
-    setContacts(contacts: Contact[]): Promise<void>;
-    deleteContact(contactId: string): Promise<void>;
+    addContact(data: {
+        name?: string;
+        number: string;
+    }): Promise<void>;
+    deleteContact(data: {
+        contactId: string;
+    }): Promise<void>;
     getGroups(): Promise<{
         groups: Group[];
     }>;

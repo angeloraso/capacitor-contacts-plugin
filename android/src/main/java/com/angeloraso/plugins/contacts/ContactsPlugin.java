@@ -2,6 +2,7 @@ package com.angeloraso.plugins.contacts;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -37,7 +38,6 @@ import java.util.Set;
     }
 )
 public class ContactsPlugin extends Plugin {
-    public static final int REQUEST_CODE = 0x1651; // Unique request code
     private static final String CONTACT_ID = "contactId";
     private static final String EMAILS = "emails";
     private static final String EMAIL_LABEL = "label";
@@ -256,7 +256,23 @@ public class ContactsPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void setContacts(PluginCall call) {
+    public void addContact(PluginCall call) {
+        if (!call.hasOption("number")) {
+            call.reject("The number is required");
+            return;
+        }
+        // Creates a new Intent to insert a contact
+        Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
+        // Sets the MIME type to match the Contacts Provider
+        intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE, call.getString("number"));
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE_TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_WORK);
+        if (!call.hasOption("name")) {
+            intent.putExtra(ContactsContract.Intents.Insert.NAME, call.getString("name"));
+        }
+
+        getContext().startActivity(intent);
         call.resolve();
     }
 
