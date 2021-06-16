@@ -252,7 +252,7 @@ public class ContactsPlugin extends Plugin {
 
         JSObject result = new JSObject();
         result.put("contacts", jsContacts);
-        call.success(result);
+        call.resolve(result);
     }
 
     @PluginMethod
