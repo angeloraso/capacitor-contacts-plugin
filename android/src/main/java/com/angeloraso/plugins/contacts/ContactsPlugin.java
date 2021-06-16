@@ -268,7 +268,7 @@ public class ContactsPlugin extends Plugin {
 
         intent.putExtra(ContactsContract.Intents.Insert.PHONE, call.getString("number"));
         intent.putExtra(ContactsContract.Intents.Insert.PHONE_TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_WORK);
-        if (!call.hasOption("name")) {
+        if (call.hasOption("name")) {
             intent.putExtra(ContactsContract.Intents.Insert.NAME, call.getString("name"));
         }
 
