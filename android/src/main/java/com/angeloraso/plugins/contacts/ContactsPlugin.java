@@ -296,7 +296,7 @@ public class ContactsPlugin extends Plugin {
 
         ContactsPlugin.addToExistingContactCall = call;
 
-        Intent intent = new Intent("android.intent.action.PHONE_BOOK_ACTIVITY");
+        Intent intent = new Intent("android.intent.action.ADD_TO_EXISTING_CONTACT_ACTIVITY");
         intent.setPackage(getContext().getPackageName());
 
         intent.putExtra("number", call.getString("number"));
