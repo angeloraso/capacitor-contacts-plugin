@@ -15,7 +15,12 @@ export class ContactsWeb extends WebPlugin implements ContactsPlugin {
     return { contacts: []};
   }
   
-  async addContact(data: {nam?: string, number: string}): Promise<void> {
+  async createContact(data: {nam?: string, number: string}): Promise<void> {
+    console.log('CONTACTS', data);
+    return;
+  }
+
+  async addToExistingContact(data: {nam?: string, number: string}): Promise<void> {
     console.log('CONTACTS', data);
     return;
   }

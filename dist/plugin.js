@@ -16,7 +16,11 @@ var capacitorContacts = (function (exports, core) {
         async getContacts() {
             return { contacts: [] };
         }
-        async addContact(data) {
+        async createContact(data) {
+            console.log('CONTACTS', data);
+            return;
+        }
+        async addToExistingContact(data) {
             console.log('CONTACTS', data);
             return;
         }

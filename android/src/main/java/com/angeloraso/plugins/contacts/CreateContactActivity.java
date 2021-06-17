@@ -6,12 +6,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 
-public class OpenPhoneBookActivity extends AppCompatActivity {
+public class CreateContactActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +30,17 @@ public class OpenPhoneBookActivity extends AppCompatActivity {
       phoneBookIntent.putExtra(ContactsContract.Intents.Insert.NAME, name);
     }
 
-    ActivityResultLauncher<Intent> phoneBookActivity = registerForActivityResult(
+    ActivityResultLauncher<Intent> createContactActivity = registerForActivityResult(
       new ActivityResultContracts.StartActivityForResult(),
       new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-          ContactsPlugin.onPhoneBookActivityResult();
+          ContactsPlugin.onCreateContactActivityResult();
           finishActivity();
         }
       });
 
-    phoneBookActivity.launch(phoneBookIntent);
+    createContactActivity.launch(phoneBookIntent);
 
   }
 

@@ -6,7 +6,11 @@ export declare class ContactsWeb extends WebPlugin implements ContactsPlugin {
     getContacts(): Promise<{
         contacts: Contact[];
     }>;
-    addContact(data: {
+    createContact(data: {
+        nam?: string;
+        number: string;
+    }): Promise<void>;
+    addToExistingContact(data: {
         nam?: string;
         number: string;
     }): Promise<void>;

@@ -44,7 +44,8 @@ import java.util.Set;
     }
 )
 public class ContactsPlugin extends Plugin {
-    private static PluginCall addContactCall;
+    private static PluginCall createContactCall;
+    private static PluginCall addToExistingContactCall;
     private static final String CONTACT_ID = "contactId";
     private static final String EMAILS = "emails";
     private static final String EMAIL_LABEL = "label";
@@ -263,15 +264,15 @@ public class ContactsPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void addContact(PluginCall call) {
+    public void createContact(PluginCall call) {
         if (!call.hasOption("number")) {
             call.reject("The number is required");
             return;
         }
 
-        ContactsPlugin.addContactCall = call;
+        ContactsPlugin.createContactCall = call;
 
-        Intent intent = new Intent("android.intent.action.PHONE_BOOK_ACTIVITY");
+        Intent intent = new Intent("android.intent.action.CREATE_CONTACT_ACTIVITY");
         intent.setPackage(getContext().getPackageName());
 
         intent.putExtra("number", call.getString("number"));
@@ -282,8 +283,28 @@ public class ContactsPlugin extends Plugin {
         getContext().startActivity(intent);
     }
 
-    public static void onPhoneBookActivityResult() {
-      ContactsPlugin.addContactCall.resolve();
+    public static void onCreateContactActivityResult() {
+        ContactsPlugin.createContactCall.resolve();
+    }
+
+    @PluginMethod
+    public void addToExistingContact(PluginCall call) {
+        if (!call.hasOption("number")) {
+            call.reject("The number is required");
+            return;
+        }
+
+        ContactsPlugin.addToExistingContactCall = call;
+
+        Intent intent = new Intent("android.intent.action.PHONE_BOOK_ACTIVITY");
+        intent.setPackage(getContext().getPackageName());
+
+        intent.putExtra("number", call.getString("number"));
+
+        getContext().startActivity(intent);
+    }
+    public static void onAddToExistingContactActivityResult() {
+        ContactsPlugin.addToExistingContactCall.resolve();
     }
 
     @PluginMethod

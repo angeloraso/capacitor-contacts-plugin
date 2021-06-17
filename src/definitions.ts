@@ -33,7 +33,8 @@ export interface ContactsPlugin {
   getPermissions(): Promise<PermissionStatus>;
   requestPermissions(): Promise<PermissionStatus>;
   getContacts(): Promise<{ contacts: Contact[]}>;
-  addContact(data: {name?: string, number: string}): Promise<void>;
+  createContact(data: {name?: string, number: string}): Promise<void>;
+  addToExistingContact(data: {name?: string, number: string}): Promise<void>;
   deleteContact(data: {contactId: string}): Promise<void>;
   getGroups(): Promise<{ groups: Group[]}>;
   getContactGroups(): Promise<{[key: string]: Group[]}>;

@@ -42,7 +42,7 @@
         "slug": "getcontacts"
       },
       {
-        "name": "addContact",
+        "name": "createContact",
         "signature": "(data: { name?: string; number: string; }) => any",
         "parameters": [
           {
@@ -55,7 +55,23 @@
         "tags": [],
         "docs": "",
         "complexTypes": [],
-        "slug": "addcontact"
+        "slug": "createcontact"
+      },
+      {
+        "name": "addToExistingContact",
+        "signature": "(data: { name?: string; number: string; }) => any",
+        "parameters": [
+          {
+            "name": "data",
+            "docs": "",
+            "type": "{ name?: string | undefined; number: string; }"
+          }
+        ],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "addtoexistingcontact"
       },
       {
         "name": "deleteContact",

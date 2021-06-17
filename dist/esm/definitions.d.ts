@@ -31,7 +31,11 @@ export interface ContactsPlugin {
     getContacts(): Promise<{
         contacts: Contact[];
     }>;
-    addContact(data: {
+    createContact(data: {
+        name?: string;
+        number: string;
+    }): Promise<void>;
+    addToExistingContact(data: {
         name?: string;
         number: string;
     }): Promise<void>;

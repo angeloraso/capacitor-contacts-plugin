@@ -7,10 +7,15 @@
 
   <application>
 
-    <activity android:name=".OpenPhoneBookActivity">
+    <activity android:name=".CreateContactActivity">
       <intent-filter>
-        <action android:name="android.intent.action.PHONE_BOOK_ACTIVITY" />
-        <category android:name="android.intent.category.DEFAULT" />
+        <action android:name="android.intent.action.CREATE_CONTAC_ACTIVITY" />
+      </intent-filter>
+    </activity>
+
+    <activity android:name=".AddToExistingContactActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.ADD_TO_EXISTING_CONTAC_ACTIVITY" />
       </intent-filter>
     </activity>
 
