@@ -1,6 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import type { Contact, ContactsPlugin, Group, PermissionStatus } from './definitions';
 export declare class ContactsWeb extends WebPlugin implements ContactsPlugin {
+    getPermissions(): Promise<PermissionStatus>;
     checkPermissions(): Promise<PermissionStatus>;
     requestPermissions(): Promise<PermissionStatus>;
     getContacts(): Promise<{

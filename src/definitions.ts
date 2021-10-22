@@ -31,6 +31,8 @@ export interface EmailAddress {
 
 export interface ContactsPlugin {
   checkPermissions(): Promise<PermissionStatus>;
+  // Deprecated
+  getPermissions(): Promise<PermissionStatus>;
   requestPermissions(): Promise<PermissionStatus>;
   getContacts(): Promise<{ contacts: Contact[]}>;
   createContact(data: {name?: string, number: string}): Promise<void>;

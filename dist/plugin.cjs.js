@@ -10,6 +10,9 @@ const Contacts = core.registerPlugin('Contacts', {
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 class ContactsWeb extends core.WebPlugin {
+    async getPermissions() {
+        throw this.unimplemented('Not implemented on web.');
+    }
     async checkPermissions() {
         throw this.unimplemented('Not implemented on web.');
     }

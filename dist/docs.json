@@ -18,6 +18,18 @@
         "slug": "checkpermissions"
       },
       {
+        "name": "getPermissions",
+        "signature": "() => any",
+        "parameters": [],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PermissionStatus"
+        ],
+        "slug": "getpermissions"
+      },
+      {
         "name": "requestPermissions",
         "signature": "() => any",
         "parameters": [],

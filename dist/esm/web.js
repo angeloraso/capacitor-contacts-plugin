@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { WebPlugin } from '@capacitor/core';
 export class ContactsWeb extends WebPlugin {
+    async getPermissions() {
+        throw this.unimplemented('Not implemented on web.');
+    }
     async checkPermissions() {
         throw this.unimplemented('Not implemented on web.');
     }

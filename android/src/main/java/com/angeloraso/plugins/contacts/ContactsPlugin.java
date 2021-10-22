@@ -31,7 +31,21 @@ public class ContactsPlugin extends Plugin {
     }
 
     @PluginMethod
+    @Deprecated
     public void getPermissions(PluginCall call) {
+        if (getActivity().isFinishing()) {
+            String appFinishingMsg = getActivity().getString(R.string.app_finishing);
+            call.reject(appFinishingMsg);
+            return;
+        }
+
+        JSObject res = new JSObject();
+        res.put("granted", contactsPermissionIsGranted());
+        call.resolve(res);
+    }
+
+    @PluginMethod
+    public void checkPermissions(PluginCall call) {
         if (getActivity().isFinishing()) {
             String appFinishingMsg = getActivity().getString(R.string.app_finishing);
             call.reject(appFinishingMsg);

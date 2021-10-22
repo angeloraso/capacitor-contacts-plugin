@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`checkPermissions()`](#checkpermissions)
+* [`getPermissions()`](#getpermissions)
 * [`requestPermissions()`](#requestpermissions)
 * [`getContacts()`](#getcontacts)
 * [`createContact(...)`](#createcontact)
@@ -32,6 +33,17 @@ npx cap sync
 
 ```typescript
 checkPermissions() => any
+```
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### getPermissions()
+
+```typescript
+getPermissions() => any
 ```
 
 **Returns:** <code>any</code>

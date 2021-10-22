@@ -27,6 +27,7 @@ export interface EmailAddress {
 }
 export interface ContactsPlugin {
     checkPermissions(): Promise<PermissionStatus>;
+    getPermissions(): Promise<PermissionStatus>;
     requestPermissions(): Promise<PermissionStatus>;
     getContacts(): Promise<{
         contacts: Contact[];
