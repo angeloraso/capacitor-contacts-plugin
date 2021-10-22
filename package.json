@@ -1,6 +1,6 @@
 {
   "name": "capacitor-contacts-plugin",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Capacitor plugin to access the phone book",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

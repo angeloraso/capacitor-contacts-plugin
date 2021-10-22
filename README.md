@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`getPermissions()`](#getpermissions)
+* [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions()`](#requestpermissions)
 * [`getContacts()`](#getcontacts)
 * [`createContact(...)`](#createcontact)
@@ -28,10 +28,10 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### getPermissions()
+### checkPermissions()
 
 ```typescript
-getPermissions() => any
+checkPermissions() => any
 ```
 
 **Returns:** <code>any</code>

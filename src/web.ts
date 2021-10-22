@@ -1,40 +1,38 @@
-/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { WebPlugin } from '@capacitor/core';
+
 import type { Contact, ContactsPlugin, Group, PermissionStatus } from './definitions';
 
 export class ContactsWeb extends WebPlugin implements ContactsPlugin {
-  async getPermissions(): Promise<PermissionStatus> {
-    return {granted: false};
+  async checkPermissions(): Promise<PermissionStatus> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
   async requestPermissions(): Promise<PermissionStatus> {
-    return {granted: false};
+    throw this.unimplemented('Not implemented on web.');
   }
 
   async getContacts(): Promise<{ contacts: Contact[]}> {
-    return { contacts: []};
+    throw this.unimplemented('Not implemented on web.');
   }
   
-  async createContact(data: {nam?: string, number: string}): Promise<void> {
-    console.log('CONTACTS', data);
-    return;
+  async createContact(_data: {nam?: string, number: string}): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  async addToExistingContact(data: {nam?: string, number: string}): Promise<void> {
-    console.log('CONTACTS', data);
-    return;
+  async addToExistingContact(_data: {nam?: string, number: string}): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  async deleteContact(data: {contactId: string}): Promise<void> {
-    console.log('CONTACT ID', data);
-    return;
+  async deleteContact(_data: {contactId: string}): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
   async getGroups(): Promise<{ groups: Group[]}> {
-    return { groups: []};
+    throw this.unimplemented('Not implemented on web.');
   }
 
   async getContactGroups(): Promise<{[key: string]: Group[]}> {
-    return { contactGroups: []};
+    throw this.unimplemented('Not implemented on web.');
   }
 }

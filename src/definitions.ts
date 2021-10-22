@@ -30,7 +30,7 @@ export interface EmailAddress {
 }
 
 export interface ContactsPlugin {
-  getPermissions(): Promise<PermissionStatus>;
+  checkPermissions(): Promise<PermissionStatus>;
   requestPermissions(): Promise<PermissionStatus>;
   getContacts(): Promise<{ contacts: Contact[]}>;
   createContact(data: {name?: string, number: string}): Promise<void>;

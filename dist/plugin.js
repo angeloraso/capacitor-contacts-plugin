@@ -5,34 +5,31 @@ var capacitorContacts = (function (exports, core) {
         web: () => Promise.resolve().then(function () { return web; }).then(m => new m.ContactsWeb()),
     });
 
-    /* eslint-disable import/order */
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     class ContactsWeb extends core.WebPlugin {
-        async getPermissions() {
-            return { granted: false };
+        async checkPermissions() {
+            throw this.unimplemented('Not implemented on web.');
         }
         async requestPermissions() {
-            return { granted: false };
+            throw this.unimplemented('Not implemented on web.');
         }
         async getContacts() {
-            return { contacts: [] };
+            throw this.unimplemented('Not implemented on web.');
         }
-        async createContact(data) {
-            console.log('CONTACTS', data);
-            return;
+        async createContact(_data) {
+            throw this.unimplemented('Not implemented on web.');
         }
-        async addToExistingContact(data) {
-            console.log('CONTACTS', data);
-            return;
+        async addToExistingContact(_data) {
+            throw this.unimplemented('Not implemented on web.');
         }
-        async deleteContact(data) {
-            console.log('CONTACT ID', data);
-            return;
+        async deleteContact(_data) {
+            throw this.unimplemented('Not implemented on web.');
         }
         async getGroups() {
-            return { groups: [] };
+            throw this.unimplemented('Not implemented on web.');
         }
         async getContactGroups() {
-            return { contactGroups: [] };
+            throw this.unimplemented('Not implemented on web.');
         }
     }
 

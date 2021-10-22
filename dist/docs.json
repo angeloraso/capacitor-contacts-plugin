@@ -6,7 +6,7 @@
     "tags": [],
     "methods": [
       {
-        "name": "getPermissions",
+        "name": "checkPermissions",
         "signature": "() => any",
         "parameters": [],
         "returns": "any",
@@ -15,7 +15,7 @@
         "complexTypes": [
           "PermissionStatus"
         ],
-        "slug": "getpermissions"
+        "slug": "checkpermissions"
       },
       {
         "name": "requestPermissions",

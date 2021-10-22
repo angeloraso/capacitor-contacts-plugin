@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -35,7 +36,7 @@ public class CreateContactActivity extends AppCompatActivity {
       new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-          ContactsPlugin.onCreateContactActivityResult();
+          setResult(Activity.RESULT_OK, result.getData());
           finishActivity();
         }
       });
